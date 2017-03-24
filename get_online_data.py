@@ -31,6 +31,8 @@ def Create_DataFile(train_no):
     soup = BeautifulSoup(f,"html.parser")
     table = soup.body.table
     l = table.get_text().split("\n")
+    if l == [u'', u'', u'', u'Started On', u'Status', u'Delay', u'Reach Time', u'', u'', u'', u'Data Not Available!']:
+        raise ValueError
     try:
         while(1):
             l.remove("")
@@ -46,4 +48,5 @@ def Create_DataFile(train_no):
         data_file.write("\n")
     data_file.close()
 
-Create_DataFile(15160)
+if __name__=="__main__":
+    Create_DataFile(15160)

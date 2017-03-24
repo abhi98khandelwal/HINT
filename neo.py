@@ -66,9 +66,9 @@ def preprocess_and_add_data():
     new_df = new_df.apply((LabelEncoder().fit_transform))
     return new_df
 
-
-p = Neo_Engine()
-p.getdata_and_train(12130)
-print(p.predict_delay())
+if __name__=="__main__":
+    p = Neo_Engine()
+    p.getdata_and_train(12130)
+    #print(p.predict_delay())
 
 
