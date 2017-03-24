@@ -1,7 +1,3 @@
-from bs4 import BeautifulSoup
-import urllib.parse
-import urllib.request
-import urllib.error
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import LabelEncoder
@@ -37,7 +33,7 @@ df.fillna(value=0,inplace=True)
 new_df = df.drop(['Status'],axis=1)
 #new_df = new_df.drop(['ReachTime'],axis=1)
 
-new_df = new_df.apply(LabelEncoder().fit_transform)
+print new_df.apply(LabelEncoder().fit_transform)
 
 X = new_df.drop(['Delay'],axis=1)
 y = new_df['Delay']

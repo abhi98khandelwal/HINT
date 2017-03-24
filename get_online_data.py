@@ -24,9 +24,10 @@ def ReachTime_DateTime_Conveter(string):
     final = " ".join((dt,raw_time))
     return datetime.datetime.strptime(final,"%d- %b-%Y %I:%M %p ")
 
+
 def Create_DataFile(train_no):
     data_file = file("data.csv","w")
-    f = urllib.urlopen("http://runningstatus.in/history/"+str(train_no)+"/thismonth")
+    f = urllib.urlopen("http://runningstatus.in/history/"+str(train_no)+"/thisyear")
     soup = BeautifulSoup(f,"html.parser")
     table = soup.body.table
     l = table.get_text().split("\n")
@@ -45,4 +46,4 @@ def Create_DataFile(train_no):
         data_file.write("\n")
     data_file.close()
 
-Create_DataFile(12129)
+Create_DataFile(15160)
