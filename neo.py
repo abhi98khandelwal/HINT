@@ -19,7 +19,7 @@ class Neo_Engine:
         df.fillna(value=0, inplace=True)
         new_df = df.apply(LabelEncoder().fit_transform)
         X = new_df.drop(['Status'], axis=1)
-        X = X.drop(['ReachTime'], axis=1)
+        X = X.drop(['Reach Time'], axis=1)
         y = new_df['Status']
         self.clf.fit(X, y)
 
@@ -67,6 +67,8 @@ def preprocess_and_add_data():
     return new_df
 
 
-
+p = Neo_Engine()
+p.getdata_and_train(15160)
+print(p.predict_delay())
 
 
