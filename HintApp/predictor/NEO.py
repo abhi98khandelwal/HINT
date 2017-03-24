@@ -4,6 +4,8 @@ import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
 import Neon.get_online_data as get_online_data
+from oauth2client.service_account import ServiceAccountCredentials
+import gspread
 
 class Neon_Engine:
 
@@ -63,4 +65,12 @@ def preprocess_and_add_data():
     new_df = new_df.apply((LabelEncoder().fit_transform))
     return new_df
 
+def Get_UserData():
+    scope = ['https://spreadsheets.google.com/feeds']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('Abhishek-9c1b3fd4771a.json', scope)
+    client = gspread.authorize(creds)
+    sheet = client.open("train-data").sheet1
+    ind = (len(sheet.get_all_values()))
+    return ((sheet.row_values(ind))[:2])
 
+print Get_UserData()
