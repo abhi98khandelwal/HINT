@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from predictor import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$',views.index,name='index'),
+    url(r'^admin/', admin.site.urls),\
+    url(r'^$',views.handle_query,name='index'),
+    url(r'^predict/$',views.result,name='pred')
 ]

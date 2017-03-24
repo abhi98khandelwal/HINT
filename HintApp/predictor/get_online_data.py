@@ -1,4 +1,4 @@
-import urllib.request
+import urllib
 from bs4 import BeautifulSoup
 import datetime
 def StartTime_DateTime_Conveter(string):
@@ -26,7 +26,7 @@ def ReachTime_DateTime_Conveter(string):
 
 def Create_DataFile(train_no):
     data_file = open(".data.csv","w")
-    f = urllib.request.urlopen("http://runningstatus.in/history/"+str(train_no)+"/thisyear")
+    f = urllib.urlopen("http://runningstatus.in/history/"+str(train_no)+"/thisyear")
     soup = BeautifulSoup(f,"html.parser")
     table = soup.body.table
     l = table.get_text().split("\n")

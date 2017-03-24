@@ -3,7 +3,7 @@ import random
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
-import Neon.get_online_data as get_online_data
+from . import get_online_data
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 
@@ -25,8 +25,8 @@ class Neon_Engine:
         # Train the model of particular locomotive
         # Example : Get train data from user. convert results to DataFrame and feed it.
 
-    def predict_delay(self):
-        X = preprocess_and_add_data()
+    def predict_delay(self,data):
+        X = preprocess_and_add_data(data)
         prediction = self.clf.predict(X)
         return prediction
         #based on training will predict delay of locomotive next day
@@ -34,7 +34,7 @@ class Neon_Engine:
 
 
 
-def preprocess_and_add_data():
+def preprocess_and_add_data(data):
     df = pd.read_csv('.data.csv')
     df.fillna(value=0, inplace=True)
     columns = df.columns.values
@@ -73,4 +73,9 @@ def Get_UserData():
     ind = (len(sheet.get_all_values()))
     return ((sheet.row_values(ind))[:2])
 
-print Get_UserData()
+n = Neon_Engine()
+l = Get_UserData()
+print l[0]
+print l[1]
+n.getdata_and_train(l[0])
+print(n.predict_delay(l[1]))
