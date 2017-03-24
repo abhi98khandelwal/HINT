@@ -24,6 +24,6 @@ def result(request):
     myneon.getdata_and_train(train_no=train_no)
     res = str(myneon.predict_delay(data=date))
     return render(request, 'result.html', {'title': 'Status',
-                                           'result': res}
+                                           'result': res[0]}
                   )
 
