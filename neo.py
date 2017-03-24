@@ -9,7 +9,7 @@ import get_online_data
 
 class Neo_Engine:
 
-    def __int__(self):
+    def __init__(self):
         self.clf = KNeighborsClassifier()
         #elf.regressor = LinearRegression()
 
@@ -53,8 +53,8 @@ def preprocess_and_add_data():
     new_time = str(datetime.datetime.now())
     X = list(X)
     new_time = list(new_time)
-    print(X)
-    print(new_time)
+    #print(X)
+    #print(new_time)
     X[:11] = new_time[:11]
     X = "".join(X)
     data_dict = {
@@ -68,7 +68,7 @@ def preprocess_and_add_data():
 
 
 p = Neo_Engine()
-p.getdata_and_train(15160)
+p.getdata_and_train(12130)
 print(p.predict_delay())
 
 
