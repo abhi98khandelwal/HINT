@@ -12,7 +12,7 @@
     <title>Train Delay Prediction System</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -50,13 +50,7 @@
       <div class="jumbotron">
         <h1>A Predictive Analytics Platform</h1>
 
-        {% if result==0 %}
-          <h3>Delay</h3>
-          {% elif result == 2 %}
-          <h3>Before</h3>
-          {% else %}
-          <h3>On time</h3>
-          {% endif %}
+        {{ result }}
       </div>
 
 
