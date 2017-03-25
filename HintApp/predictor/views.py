@@ -22,8 +22,16 @@ def result(request):
     date = l[1]
     myneon = NEO.Neon_Engine()
     myneon.getdata_and_train(train_no=train_no)
-    res = str(myneon.predict_delay(data=date))
+    res = myneon.predict_delay(data=date)
+    mymsg = " "
+    if res == 0:
+        mymsg = 'Delay'
+    elif res == 2:
+        mymsg = 'Before'
+
+    else:
+        mymsg = 'On Time'
     return render(request, 'result.html', {'title': 'Status',
-                                           'result': res[0]}
+                                           'result': mymsg}
                   )
 
