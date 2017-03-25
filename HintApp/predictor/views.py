@@ -23,7 +23,7 @@ def result(request):
     myneon = NEO.Neon_Engine()
     myneon.getdata_and_train(train_no=train_no)
     res = myneon.predict_delay(data=date)
-    mymsg = " "
+    mymsg = ' '
     if res == 0:
         mymsg = 'Delay'
     elif res == 2:
