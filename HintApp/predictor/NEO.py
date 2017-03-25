@@ -72,9 +72,10 @@ def Get_UserData():
     ind = (len(sheet.get_all_values()))
     return ((sheet.row_values(ind))[:2])
 
-n = Neon_Engine()
-l = Get_UserData()
-print l[0]
-print l[1]
-n.getdata_and_train(l[0])
-print(n.predict_delay(l[1]))
+if __name__=="__main__":
+    n = Neon_Engine()
+    l = Get_UserData()
+    print l[0]
+    print l[1]
+    n.getdata_and_train(l[0])
+    print(n.predict_delay(l[1]))
