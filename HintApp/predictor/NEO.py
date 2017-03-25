@@ -7,6 +7,7 @@ from . import get_online_data
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 
+
 class Neon_Engine:
 
     def __init__(self):
@@ -52,8 +53,6 @@ def preprocess_and_add_data(data):
     new_time = str(datetime.datetime.now())
     X = list(X)
     new_time = list(new_time)
-    #print(X)
-    #print(new_time)
     X[:11] = new_time[:11]
     X = "".join(X)
     data_dict = {
