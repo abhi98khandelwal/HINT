@@ -22,4 +22,8 @@ We take last year data from internet by scrapping table using BeautifullSoup fra
 
 `python manage.py runserver`
 
-3. Now you can run the website by typing *http://127.0.0.1:8000/* in the address bar of the browser.
+3. Now you can run the website by typing http://127.0.0.1:8000/ in the address bar of the browser.
+
+### How to check result?
+
+Navigate to http://127.0.0.1:8000/predict/ to check the result of the previous form filled.
